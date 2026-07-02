@@ -7,3 +7,4 @@ data/store/
 data/*.local.json
 .DS_Store
 coverage/
+package-lock.json
