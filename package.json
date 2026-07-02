@@ -1,0 +1,19 @@
+{
+  "name": "gatekeeper-acp",
+  "version": "0.1.0",
+  "description": "Gatekeeper — Token Safety & Rug/Honeypot Gate for Virtuals ACP agents. One composite GO/CAUTION/BLOCK verdict before you trade, multichain.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "worker": "node src/worker.js",
+    "acp": "node src/acp.js",
+    "backtest": "node scripts/backtest.js",
+    "smoke": "node scripts/smoke.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=18.17.0" },
+  "dependencies": { "express": "^4.19.2" },
+  "optionalDependencies": { "@virtuals-protocol/acp-node-v2": "^0.1.7" },
+  "license": "MIT"
+}

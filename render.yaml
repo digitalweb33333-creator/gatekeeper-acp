@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: gatekeeper-acp
+    runtime: node
+    plan: starter            # starter (paid) avoids cold starts → keeps MINS_FROM_LAST_ONLINE at 0
+    region: oregon
+    buildCommand: npm install && npm run backtest   # backtest is BLOCKING: a failed backtest fails the deploy
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: PORT
+        value: "10000"
+      - key: PUBLIC_BASE_URL
+        value: https://gatekeeper-acp.onrender.com
+      - key: WHITELISTED_WALLET_PRIVATE_KEY
+        sync: false
+      - key: SELLER_ENTITY_ID
+        sync: false
+      - key: SELLER_AGENT_WALLET_ADDRESS
+        sync: false
+      - key: SELLER_BUILDER_CODE
+        sync: false

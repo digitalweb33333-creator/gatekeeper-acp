@@ -1,0 +1,35 @@
+# Gatekeeper — Token Safety & Rug/Honeypot Check
+
+> Pre-trade token safety gate for AI agents. One call returns a composite GO / CAUTION / BLOCK
+> verdict with a 0–100 safety score and the exact reasons: honeypot, buy/sell tax, mint authority,
+> owner powers, LP lock, holder concentration, liquidity — across Base, Solana, Arbitrum, BNB and
+> more (GoPlus covers 43 chains). Run it before every swap. Conservative by design: missing data
+> never returns GO. Informational only, not financial advice.
+
+## Why Gatekeeper over a raw security API
+- One composite verdict + score, not a wall of raw flags you have to interpret.
+- Multichain, chain auto-detected.
+- Conservative: missing data => CAUTION, never a false GO.
+- Per-buyer risk policy (ACP Accounts) — the verdict adapts to YOUR thresholds.
+- Daily approval monitoring with Notification Memos — get alerted when a token you hold goes bad.
+- Free known-scam lookup so you can try before you pay.
+
+## Offerings
+- token_gate — $0.04 — GO/CAUTION/BLOCK verdict + score + reasons for any token. Input: { address, chain? }.
+- deep_forensics — $0.35 — token_gate + live honeypot.is simulation + deployer-wallet screening + contract verification. Input: { address, chain? }.
+- wallet_screen — $0.05 — is a wallet linked to phishing/scam/theft/sanctions? Input: { address, chain? }.
+- approval_monitor — $0.02 — register held/approved tokens; daily re-check; Notification Memo on risk transition. Input: { tokens:[{address,chain}] }.
+- policy_set — $0.02 — set your risk thresholds (ACP Accounts). Input: { policy:{ max_sell_tax_pct, min_liquidity_usd, max_top10_concentration_pct, risk_tolerance } }.
+
+## Free resource (no payment)
+- GET /resource/known-scam?address=0x… — is this address a known scam/phishing/malicious address?
+
+## Keywords
+is this token safe, honeypot check, rug pull detection, token security scan, pre-trade check,
+before you trade, token safety, buy tax sell tax, mintable, LP lock, holder concentration,
+wallet screening, sanctioned address, multichain security, GoPlus, honeypot.is.
+
+## Endpoints
+- Health: /health
+- Agent card: /.well-known/agent-card.json
+- Disclaimer: informational security signals aggregated from public sources; not financial advice.

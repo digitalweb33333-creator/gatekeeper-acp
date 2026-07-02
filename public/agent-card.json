@@ -1,0 +1,23 @@
+{
+  "protocolVersion": "0.2.0",
+  "name": "Gatekeeper — Token Safety Check",
+  "description": "Pre-trade token safety gate for AI agents. One call returns a composite GO/CAUTION/BLOCK verdict with a 0–100 safety score and reasons: honeypot, buy/sell tax, mint authority, owner powers, LP lock, holder concentration, liquidity — across Base, Solana, Arbitrum, BNB (43 chains via GoPlus). Conservative: missing data never returns GO. Free known-scam lookup; per-buyer risk policy via ACP Accounts; daily approval monitoring via Notification Memos. Informational, not financial advice.",
+  "provider": { "organization": "Gatekeeper", "url": "https://gatekeeper-acp.onrender.com" },
+  "url": "https://gatekeeper-acp.onrender.com",
+  "version": "0.1.0",
+  "capabilities": { "streaming": false, "pushNotifications": true, "stateTransitionHistory": false },
+  "defaultInputModes": ["application/json"],
+  "defaultOutputModes": ["application/json"],
+  "payment": { "protocol": "virtuals-acp", "network": "base", "asset": "USDC", "model": "per-job" },
+  "skills": [
+    { "id": "token_gate", "name": "Token Gate (safety verdict)", "price_usd": 0.04, "tags": ["honeypot", "rug", "security", "pre-trade"], "description": "GO/CAUTION/BLOCK verdict + 0–100 score + reasons for any token, multichain. Conservative: missing data never GO." },
+    { "id": "deep_forensics", "name": "Deep Forensics", "price_usd": 0.35, "tags": ["forensics", "honeypot-sim", "deployer"], "description": "token_gate + live honeypot.is simulation + deployer-wallet screening + contract verification." },
+    { "id": "wallet_screen", "name": "Wallet Screen", "price_usd": 0.05, "tags": ["wallet", "phishing", "sanctions"], "description": "Screen a wallet for phishing/scam/theft/sanctions/mixer history." },
+    { "id": "approval_monitor", "name": "Approval Monitor", "price_usd": 0.02, "tags": ["monitoring", "memos", "retention"], "description": "Daily re-check of held/approved tokens; Notification Memo on risk transition." },
+    { "id": "policy_set", "name": "Risk Policy", "price_usd": 0.02, "tags": ["accounts", "policy"], "description": "Set per-buyer risk thresholds (ACP Accounts); verdicts adapt to your policy." }
+  ],
+  "resources": [
+    { "id": "known_scam_lookup", "free": true, "path": "/resource/known-scam", "description": "Free: is this address a known scam/phishing/malicious address?" }
+  ],
+  "disclaimer": "Informational security signals aggregated from public sources (GoPlus, honeypot.is, DexScreener, on-chain). Not financial advice."
+}

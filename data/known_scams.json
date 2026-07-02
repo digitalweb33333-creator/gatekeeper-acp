@@ -1,0 +1,4 @@
+{
+  "_note": "Local known-scam base. Grown automatically from confirmed BLOCK verdicts (token_gate) and seeded conservatively. Keys are lowercased addresses. Never seed unverified addresses — false positives destroy trust.",
+  "addresses": {}
+}
